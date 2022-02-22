@@ -15,5 +15,13 @@ public class ConcortHotelPage {
     @FindBy(xpath = "// input[@id='UserName']")
     public WebElement concortHotelUserName;
 
+    @FindBy(xpath = "// input[@class='form-control required password']")
+    public WebElement concortHotelPassword;
+
+    @FindBy(xpath = "//input[@id='btnSubmit']")
+    public WebElement concortHotelLoginButton;
+
+ @FindBy(xpath = "//span[@class='caption-subject font-green-sharp bold uppercase']")
+ public WebElement concortHotelLoginMessage;
 
 }
