@@ -1,9 +1,12 @@
 package Pages;
 
+import Utilities.ConfigReader;
 import Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class ConcortHotelPage {
     public ConcortHotelPage() {
@@ -45,6 +48,21 @@ public class ConcortHotelPage {
 
     @FindBy(xpath = "//button[@data-bb-handler='ok']")
     public WebElement concortHotelListCreateUserCorrectMessageOK;
+
+    @FindBy(xpath = "//thead//tr[1]//th") //Dönen bir tane de olsa list de olsa  @FindBy
+    public WebElement tableColumns;
+    @FindBy(xpath = "//tbody")
+    public WebElement tableTbody;
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> tableRow;
+
+    public void  loginConcortHotel(){
+        Driver.getDriver().get(ConfigReader.getProperty("CHUrl"));
+        concortHotelLogin.click();
+        concortHotelUserName.sendKeys(ConfigReader.getProperty("CHValidUserName"));
+        concortHotelPassword.sendKeys(ConfigReader.getProperty("CHValidPassword"));
+        concortHotelLoginButton.click();
+    }
 
 
 }
